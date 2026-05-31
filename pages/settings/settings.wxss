@@ -1,0 +1,106 @@
+/* pages/settings/settings.wxss */
+page {
+  background: #f5f5f5;
+}
+
+.settings-page {
+  min-height: 100vh;
+}
+
+.avatar-section {
+  background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+  padding: 60rpx 30rpx 80rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 80rpx;
+  border: 6rpx solid #fff;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.15);
+}
+
+.change-avatar-btn {
+  margin-top: 20rpx;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 24rpx;
+  padding: 10rpx 28rpx;
+  border-radius: 30rpx;
+}
+
+.settings-form {
+  background: #fff;
+  margin: 30rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.form-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx 30rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.form-label {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.form-value {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.user-id {
+  font-size: 26rpx;
+  color: #999;
+  font-family: monospace;
+}
+
+.nickname,
+.signature,
+.phone {
+  font-size: 28rpx;
+  color: #666;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.picker-value {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.arrow {
+  font-size: 32rpx;
+  color: #ccc;
+}
+
+.settings-info {
+  padding: 30rpx;
+  text-align: center;
+}
+
+.info-text {
+  font-size: 24rpx;
+  color: #999;
+}

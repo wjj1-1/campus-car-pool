@@ -1,0 +1,31 @@
+.detail-page { min-height: 100vh; padding-bottom: 140rpx; background: #f3f5f4; }
+.detail-map-shell { position: relative; height: 560rpx; background: #dfe8e3; }
+.detail-map { width: 100%; height: 100%; }
+.map-mask { position: absolute; left: 0; right: 0; bottom: 0; height: 180rpx; background: linear-gradient(180deg, rgba(243,245,244,0), #f3f5f4); pointer-events: none; }
+.route-card { position: absolute; left: 24rpx; right: 24rpx; bottom: 24rpx; }
+.time { color: #66706b; font-size: 25rpx; }
+.route { display: flex; align-items: center; gap: 16rpx; margin: 22rpx 0 12rpx; font-size: 40rpx; font-weight: 800; }
+.arrow { color: #07C160; }
+.subline { color: #66706b; font-size: 25rpx; }
+.content { padding-top: 22rpx; }
+.info-card { display: flex; justify-content: space-between; margin-bottom: 22rpx; }
+.metric { flex: 1; text-align: center; }
+.metric-num { display: block; font-size: 32rpx; font-weight: 800; color: #05A854; }
+.metric-label { display: block; margin-top: 8rpx; color: #66706b; font-size: 23rpx; }
+.list-card, .remark-card { margin-top: 22rpx; }
+.info-row { display: flex; justify-content: space-between; padding: 22rpx 0; border-bottom: 1rpx solid #edf0ee; color: #53615c; font-size: 28rpx; }
+.info-row:last-child { border-bottom: 0; }
+.block-title { display: block; font-size: 30rpx; font-weight: 800; margin-bottom: 18rpx; }
+.remark { color: #53615c; line-height: 1.7; font-size: 27rpx; }
+.actions { position: fixed; left: 24rpx; right: 24rpx; bottom: 34rpx; display: flex; gap: 20rpx; }
+.actions button { flex: 1; height: 88rpx; line-height: 88rpx; }
+.empty { text-align: center; padding-top: 160rpx; color: #7b8580; }
+
+.actions.three { gap: 14rpx; }
+.danger-btn { flex: 0.8; height: 88rpx; line-height: 88rpx; border-radius: 14rpx; background: #fff0ee; color: #d34a3a; font-size: 28rpx; }
+
+.publisher-actions button { flex: 1; }
+.publisher-panel { position: fixed; left: 24rpx; right: 24rpx; bottom: 26rpx; }
+.publisher-panel .actions { position: static; margin-top: 14rpx; }
+.publisher-actions.second button { flex: 1; }
+.waiting-card { padding: 22rpx 24rpx; border-radius: 14rpx; background: #e9f8f0; color: #05A854; font-size: 26rpx; text-align: center; }

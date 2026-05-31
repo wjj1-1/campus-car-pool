@@ -1,0 +1,46 @@
+<view class="container publish-page">
+  <view class="publish-hero">
+    <text class="page-title">发布拼车</text>
+    <text class="page-subtitle">发布你的出行需求，和校园用户一起同行分摊费用</text>
+  </view>
+
+  <view class="mode-banner {{rideMode === '大件行李约伴' ? 'charter' : ''}}">
+    <text>当前类型：{{rideMode}}</text>
+    <text class="mode-desc">{{rideModeDesc}}</text>
+  </view>
+
+  <view class="passenger-note">普通校园用户互相约伴拼车，费用默认 AA 后结算。发布人只负责发起同行需求，其他用户可按偏好和名额加入。</view>
+
+  <view class="card form-card">
+    <view class="two-cols">
+      <view class="field half"><text class="label">我的性别</text><picker range="{{genders}}" value="{{genderIndex}}" bindchange="onGenderChange"><view class="picker-value">{{genders[genderIndex]}}</view></picker></view>
+      <view class="field half"><text class="label">我的身份</text><picker range="{{identities}}" value="{{identityIndex}}" bindchange="onIdentityChange"><view class="picker-value">{{identities[identityIndex]}}</view></picker></view>
+    </view>
+
+    <view class="field"><text class="label">同行偏好</text><picker range="{{preferences}}" value="{{preferenceIndex}}" bindchange="onPreferenceChange"><view class="picker-value">{{preferences[preferenceIndex]}}</view></picker><text class="hint">女生可选择“仅限女生”，系统会在加入时自动拦截不符合条件的用户。</text></view>
+
+    <view class="field"><text class="label">同行人数上限</text><picker range="{{seatOptions}}" value="{{seatIndex}}" bindchange="onSeatChange"><view class="picker-value">{{seatOptions[seatIndex]}}</view></picker><text class="hint">每次同行最多4人，达到上限后其他用户不能再加入。</text></view>
+
+    <view class="location-field"><view class="point start"></view><view class="location-main"><text class="label">出发地</text><input class="input" data-key="start" value="{{start}}" bindinput="onInput" placeholder="如 学校东门" /></view><button class="map-pick" data-type="start" bindtap="chooseLocation">地图</button></view>
+    <view class="location-field"><view class="point end"></view><view class="location-main"><text class="label">目的地</text><input class="input" data-key="end" value="{{end}}" bindinput="onInput" placeholder="如 武昌站" /></view><button class="map-pick" data-type="end" bindtap="chooseLocation">地图</button></view>
+
+    <view class="two-cols">
+      <view class="field half"><text class="label">日期</text><picker mode="date" value="{{date}}" bindchange="onDateChange"><view class="picker-value">{{date}}</view></picker></view>
+      <view class="field half"><text class="label">时间</text><picker mode="time" value="{{time}}" bindchange="onTimeChange"><view class="picker-value">{{time}}</view></picker></view>
+    </view>
+
+    <view class="field"><text class="label">集合点</text><input class="input" data-key="meetPoint" value="{{meetPoint}}" bindinput="onInput" placeholder="如 图书馆门口、东门保安亭旁" /></view>
+
+    <view class="two-cols">
+      <view class="field half"><text class="label">出行场景</text><picker range="{{scenes}}" value="{{sceneIndex}}" bindchange="onSceneChange"><view class="picker-value">{{scenes[sceneIndex]}}</view></picker></view>
+      <view class="field half"><text class="label">行李情况 *</text><picker range="{{luggageOptions}}" value="{{luggageIndex}}" bindchange="onLuggageChange"><view class="picker-value">{{luggageTextDisplay}}</view></picker></view>
+    </view>
+
+    <view class="field"><text class="label">行李占位 *</text><input class="input" type="number" data-key="luggageSlots" value="{{luggageSlots}}" bindinput="onLuggageSlotsInput" placeholder="0-4，超过2建议单独约车" /><text class="hint">行李占位必须填写。超过2个时会标记为“大件行李约伴”。</text></view>
+
+    <view class="field"><text class="label">联系电话</text><input class="input" type="number" maxlength="11" data-key="contact" value="{{contact}}" bindinput="onInput" placeholder="加入后用于同行联系" /></view>
+    <view class="field"><text class="label">备注</text><textarea class="textarea" data-key="remark" value="{{remark}}" bindinput="onInput" placeholder="如行李件数、是否赶时间、可接受上车点、希望同行人提前沟通的事项" /></view>
+  </view>
+
+  <button class="primary-btn submit" bindtap="submit">立即发布</button>
+</view>

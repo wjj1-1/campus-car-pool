@@ -1,0 +1,36 @@
+.profile { display: flex; align-items: center; margin-top: 10rpx; }
+.avatar { width: 112rpx; height: 112rpx; line-height: 112rpx; text-align: center; border-radius: 50%; background: #07C160; color: #fff; font-size: 40rpx; font-weight: 700; }
+.profile-info { flex: 1; margin-left: 24rpx; }
+.name { display: block; font-size: 34rpx; font-weight: 700; }
+.school { display: block; margin-top: 10rpx; color: #66706b; font-size: 25rpx; }
+.login-btn { width: 116rpx; height: 64rpx; line-height: 64rpx; border-radius: 999rpx; background: #edf5f1; color: #07C160; font-size: 24rpx; }
+.stats { display: flex; margin-top: 22rpx; }
+.stat { flex: 1; text-align: center; color: #66706b; font-size: 24rpx; }
+.num { display: block; margin-bottom: 8rpx; color: #07C160; font-size: 38rpx; font-weight: 700; }
+.menu { margin-top: 22rpx; padding-top: 8rpx; padding-bottom: 8rpx; }
+.menu-item { display: flex; justify-content: space-between; align-items: center; min-height: 88rpx; border-bottom: 1rpx solid #edf0ee; font-size: 29rpx; }
+.menu-item:last-child { border-bottom: 0; }
+.chevron { color: #a2aaa6; font-size: 40rpx; }
+.safe-card { margin-top: 22rpx; }
+.safe-title { display: block; font-weight: 700; font-size: 30rpx; margin-bottom: 14rpx; }
+.safe-text { color: #66706b; line-height: 1.7; font-size: 26rpx; }
+.profile-settings { margin-top: 22rpx; padding-top: 8rpx; padding-bottom: 8rpx; }
+.setting-row { display: flex; justify-content: space-between; align-items: center; min-height: 82rpx; border-bottom: 1rpx solid #edf0ee; font-size: 28rpx; }
+.setting-row:last-child { border-bottom: 0; }
+.setting-row picker { color: #07C160; font-weight: 700; }
+
+.credit-card { margin-top: 22rpx; }
+.credit-row { display: flex; justify-content: space-between; padding: 18rpx 0; border-bottom: 1rpx solid #edf0ee; color: #53615c; font-size: 26rpx; }
+.credit-row:last-child { border-bottom: 0; }
+.credit-row text:last-child { color: #d34a3a; font-weight: 700; }
+.rule-row { display: flex; justify-content: space-between; gap: 20rpx; padding: 16rpx 0; border-bottom: 1rpx solid #edf0ee; color: #53615c; font-size: 25rpx; }
+.rule-row:last-child { border-bottom: 0; }
+.rule-row text:last-child { color: #05A854; text-align: right; }
+
+.credit-main { flex: 1; display: flex; flex-direction: column; gap: 6rpx; }
+.credit-reason { color: #263c33; font-weight: 700; }
+.credit-route { color: #7b8580; font-size: 23rpx; }
+.credit-status { color: #05A854; font-size: 23rpx; }
+.credit-points { min-width: 110rpx; text-align: right; font-weight: 800; }
+.credit-points.deduct { color: #d34a3a; }
+.credit-points.free { color: #05A854; }

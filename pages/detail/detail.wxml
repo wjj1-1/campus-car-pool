@@ -1,0 +1,46 @@
+<view class="detail-page" wx:if="{{trip}}">
+  <view class="detail-map-shell">
+    <map class="detail-map" latitude="{{latitude}}" longitude="{{longitude}}" scale="10" markers="{{markers}}" polyline="{{polyline}}" enable-zoom enable-scroll></map>
+    <view class="map-mask"></view>
+    <view class="route-card card">
+      <view class="between"><text class="time">{{trip.date}} {{trip.time}}</text><text class="tag">{{statusText}}</text></view>
+      <view class="route"><text>{{trip.start}}</text><text class="arrow">-></text><text>{{trip.end}}</text></view>
+      <text class="subline">集合点 {{trip.meetPoint}}</text>
+    </view>
+  </view>
+
+  <view class="container content">
+    <view class="card info-card">
+      <view class="metric"><text class="metric-num">{{trip.joined}}/{{trip.seats}}</text><text class="metric-label">同行人数</text></view>
+      <view class="metric"><text class="metric-num">{{trip.capacityText}}</text><text class="metric-label">名额状态</text></view>
+      <view class="metric"><text class="metric-num">{{trip.priceText}}</text><text class="metric-label">费用方式</text></view>
+    </view>
+
+    <view class="card safety-card">
+      <text class="block-title">同行说明</text>
+      <text class="safety-text">普通校园用户互相约伴拼车。加入后请联系发布人确认集合点、行李空间和AA结算方式。</text>
+    </view>
+
+    <view class="card list-card">
+      <view class="info-row"><text>发布人</text><text>{{trip.publisher}}</text></view>
+      <view class="info-row"><text>同行偏好</text><text>{{trip.genderPreferenceText}}</text></view>
+      <view class="info-row"><text>发起身份</text><text>{{trip.publisherIdentityText}} · {{trip.publisherGenderText}}</text></view>
+      <view class="info-row"><text>发起人信誉</text><text>{{trip.publisherCreditScore}} 分</text></view>
+      <view class="info-row"><text>出行类型</text><text>{{trip.modeText}}</text></view>
+      <view class="info-row"><text>出行场景</text><text>{{trip.tripSceneText}}</text></view>
+      <view class="info-row"><text>行李情况</text><text>{{trip.luggageText}} · 占 {{trip.luggageSlots}} 位</text></view>
+      <view class="info-row"><text>联系电话</text><text>{{trip.contact}}</text></view>
+      <view class="info-row"><text>行程状态</text><text>{{statusText}}</text></view>
+    </view>
+
+    <view class="card remark-card"><text class="block-title">备注</text><text class="remark">{{remarkText}}</text></view>
+  </view>
+
+  <view class="publisher-panel" wx:if="{{isPublisher}}">
+    <view class="actions publisher-actions"><button class="ghost-btn" bindtap="contactCarpoolers">同行人电话</button><button class="danger-btn" bindtap="reportTrip">举报/反馈</button></view>
+    <view class="actions publisher-actions second"><button class="primary-btn" bindtap="cancelPublishedTrip">取消拼车</button></view>
+  </view>
+
+  <view class="actions three" wx:else><button class="danger-btn" bindtap="reportTrip">举报</button><button class="ghost-btn" bindtap="contactPublisher">联系发布人</button><button class="primary-btn" bindtap="joinTrip" disabled="{{joined || availableSeats === 0}}">{{joinText}}</button></view>
+</view>
+<view class="container empty" wx:else>行程不存在</view>

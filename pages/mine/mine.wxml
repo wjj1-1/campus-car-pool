@@ -1,0 +1,36 @@
+<view class="container mine-page">
+  <view class="profile card">
+    <view class="avatar">{{avatarText}}</view>
+    <view class="profile-info"><text class="name">{{userInfo ? userInfo.nickname : '未登录'}}</text><text class="school">{{userInfo ? userInfo.school : '登录后管理你的拼车行程'}}</text></view>
+    <button class="login-btn" wx:if="{{!userInfo}}" bindtap="login">登录</button>
+  </view>
+
+  <view class="profile-settings card">
+    <view class="setting-row"><text>我的性别</text><picker range="{{genders}}" value="{{genderIndex}}" bindchange="onGenderChange"><view>{{genders[genderIndex]}}</view></picker></view>
+    <view class="setting-row"><text>我的身份</text><picker range="{{identities}}" value="{{identityIndex}}" bindchange="onIdentityChange"><view>{{identities[identityIndex]}}</view></picker></view>
+  </view>
+
+  <view class="stats card">
+    <view class="stat" bindtap="goTrips"><text class="num">{{joinedCount}}</text><text>我加入的</text></view>
+    <view class="stat" bindtap="goTrips"><text class="num">{{publishedCount}}</text><text>我发布的</text></view>
+    <view class="stat"><text class="num">{{verifiedText}}</text><text>身份认证</text></view>
+    <view class="stat"><text class="num">{{creditScore}}</text><text>信誉分</text></view>
+  </view>
+
+  <view class="credit-card card">
+    <text class="safe-title">信誉记录</text>
+    <view class="credit-row" wx:for="{{creditRecords}}" wx:key="id">
+      <view class="credit-main">
+        <text class="credit-reason">{{item.reason}}</text>
+        <text class="credit-route">{{item.route}}</text>
+        <text class="credit-status">{{item.statusText}}</text>
+      </view>
+      <text class="credit-points {{item.points > 0 ? 'deduct' : 'free'}}">{{item.points > 0 ? '-' + item.points + '分' : '不扣分'}}</text>
+    </view>
+    <text class="safe-text" wx:if="{{creditRecords.length === 0}}">暂无扣分记录</text>
+  </view>
+
+  <view class="menu card"><view class="menu-item" wx:for="{{menu}}" wx:key="title" data-url="{{item.url}}" bindtap="goPage"><text>{{item.title}}</text><text class="chevron">›</text></view></view>
+
+  <view class="safe-card card"><text class="safe-title">拼车规则</text><text class="safe-text">未完成身份认证前无法发布或加入拼车。主动取消、未按时赴约、被举报等行为会进入系统核验。低于60分将限制加入拼车。</text></view>
+</view>

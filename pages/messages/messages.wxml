@@ -1,0 +1,16 @@
+<view class="container messages-page">
+  <view class="between header">
+    <view>
+      <text class="title">消息通知</text>
+      <text class="subtitle">行程变更、拼车通知和安全提醒</text>
+    </view>
+    <button class="clear" bindtap="clearAll">清空</button>
+  </view>
+
+  <view class="message-card card {{item.unread ? 'unread' : ''}}" wx:for="{{messages}}" wx:key="id" data-id="{{item.id}}" bindtap="openMessage">
+    <view class="between"><text class="msg-title">{{item.title}}</text><text class="msg-time">{{item.time}}</text></view>
+    <text class="msg-content">{{item.content}}</text>
+    <text class="msg-link" wx:if="{{item.tripId}}">点击查看行程</text>
+  </view>
+
+  <view class="empty" wx:if="{{messages.length === 0}}">暂无消息</view></view>

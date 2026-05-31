@@ -1,0 +1,31 @@
+<view class="container trips-page">
+  <view class="tabs">
+    <view class="tab {{active === item.key ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="key" data-key="{{item.key}}" bindtap="switchTab">{{item.name}}</view>
+  </view>
+
+  <view class="notice card">
+    <text>行程会随时间自动流转为进行中、已结束或已取消，历史行程可在“历史行程”中查看。</text>
+  </view>
+
+  <view class="trip-card card" wx:for="{{trips}}" wx:key="id">
+    <view class="between">
+      <text class="status">{{item.systemStatusText || item.statusText || (item.status === 'open' ? '待出发' : '已确认')}}</text>
+      <text class="tag">{{item.date}} {{item.time}}</text>
+    </view>
+    <view class="route" data-id="{{item.id}}" bindtap="goDetail">
+      <text>{{item.start}}</text><text class="arrow">-></text><text>{{item.end}}</text>
+    </view>
+    <view class="meta"><text>{{item.modeText}} · {{item.tripSceneText}}</text><text>{{item.priceText}}</text></view>
+    <view class="meta sub"><text>{{item.luggageText}} · 行李位 {{item.luggageSlots}}</text><text>人数 {{item.joined}}/{{item.seats}}</text></view>
+    <view class="actions">
+      <button class="ghost-btn" data-id="{{item.id}}" bindtap="goDetail">详情</button>
+      <button class="ghost-btn" data-id="{{item.id}}" bindtap="contactTrip">联系</button>
+      <button class="warn-btn" data-id="{{item.id}}" bindtap="reportTrip">举报/反馈</button>
+      <button class="cancel-btn" data-id="{{item.id}}" bindtap="cancelTrip">{{active === 'joined' ? '取消拼车' : '取消发布'}}</button>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{trips.length === 0}}">
+    <text>{{active === 'joined' ? '还没有加入任何行程' : active === 'published' ? '还没有发布任何行程' : '暂无历史行程'}}</text>
+    <button class="primary-btn" wx:if="{{active === 'published'}}" bindtap="goPublish">去发布</button>  </view>
+</view>

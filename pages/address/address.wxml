@@ -1,0 +1,112 @@
+<!--pages/address/address.wxml-->
+<view class="address-page">
+  <view class="address-list" wx:if="{{addressList.length > 0}}">
+    <view class="address-item" wx:for="{{addressList}}" wx:key="id" data-id="{{item.id}}" bindtap="editAddress">
+      <view class="address-main">
+        <view class="address-tag {{item.tag}}">{{item.tagText}}</view>
+        <view class="address-detail">
+          <text class="address-name">{{item.name}}</text>
+          <text class="address-info">{{item.building}}{{item.room}}</text>
+          <text class="address-desc">{{item.description}}</text>
+        </view>
+      </view>
+      <view class="address-actions">
+        <view class="default-btn" wx:if="{{!item.isDefault}}" data-id="{{item.id}}" catchtap="setDefault">
+          设为默认
+        </view>
+        <view class="default-tag" wx:if="{{item.isDefault}}">默认</view>
+        <view class="delete-btn" data-id="{{item.id}}" catchtap="deleteAddress">删除</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:else>
+    <text class="empty-icon">📍</text>
+    <text class="empty-text">暂无常用地址</text>
+    <text class="empty-hint">点击下方按钮添加常用地址</text>
+  </view>
+
+  <view class="add-address-section">
+    <button class="add-address-btn" bindtap="addAddress">
+      <text class="add-icon">+</text>
+      <text>添加新地址</text>
+    </button>
+  </view>
+
+  <!-- 添加/编辑地址弹窗 -->
+  <view class="address-modal" wx:if="{{showAddressModal}}" bindtap="hideModal">
+    <view class="modal-content" catchtap="stopPropagation">
+      <view class="modal-header">
+        <text class="modal-title">{{isEdit ? '编辑地址' : '添加地址'}}</text>
+      </view>
+      
+      <view class="modal-form">
+        <view class="form-item">
+          <view class="form-label">
+            <text class="required">*</text>
+            <text>标签</text>
+          </view>
+          <picker mode="selector" range="{{tags}}" bindchange="onTagChange">
+            <view class="form-input picker-value">
+              {{currentTag || '请选择标签'}}
+            </view>
+          </picker>
+        </view>
+
+        <view class="form-item">
+          <view class="form-label">
+            <text class="required">*</text>
+            <text>名称</text>
+          </view>
+          <input 
+            class="form-input" 
+            placeholder="如：学校东门、宿舍楼A" 
+            bindinput="inputName"
+            value="{{formData.name}}"
+          />
+        </view>
+
+        <view class="form-item">
+          <view class="form-label">
+            <text>建筑物</text>
+          </view>
+          <input 
+            class="form-input" 
+            placeholder="如：学生宿舍楼A栋" 
+            bindinput="inputBuilding"
+            value="{{formData.building}}"
+          />
+        </view>
+
+        <view class="form-item">
+          <view class="form-label">
+            <text>房间号</text>
+          </view>
+          <input 
+            class="form-input" 
+            placeholder="如：101室" 
+            bindinput="inputRoom"
+            value="{{formData.room}}"
+          />
+        </view>
+
+        <view class="form-item">
+          <view class="form-label">
+            <text>描述</text>
+          </view>
+          <textarea 
+            class="form-textarea" 
+            placeholder="补充说明位置信息（选填）" 
+            bindinput="inputDescription"
+            value="{{formData.description}}"
+          />
+        </view>
+      </view>
+
+      <view class="modal-footer">
+        <button class="cancel-btn" bindtap="hideModal">取消</button>
+        <button class="confirm-btn" bindtap="confirmAddress">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

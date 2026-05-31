@@ -1,0 +1,24 @@
+<view class="container simple-page">
+  <view class="card auth-card">
+    <text class="title">身份认证</text>
+    <text class="body">学生填写学号，教师填写工号和院系信息。提交后进入待审核，审核通过后才可发布或加入拼车。</text>
+
+    <view class="field">
+      <text class="label">身份类型</text>
+      <picker range="{{roles}}" value="{{roleIndex}}" bindchange="onRoleChange">
+        <view class="picker-value">{{roles[roleIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="field"><text class="label">姓名</text><input class="input" data-key="name" bindinput="onInput" placeholder="请输入真实姓名" /></view>
+    <view class="field"><text class="label">学校</text><input class="input" data-key="school" bindinput="onInput" placeholder="请输入学校名称" /></view>
+    <view class="field" wx:if="{{roleIndex === 0}}"><text class="label">学号</text><input class="input" data-key="idNumber" bindinput="onInput" placeholder="请输入学号" /></view>
+    <view wx:if="{{roleIndex === 1}}">
+      <view class="field"><text class="label">院系/部门</text><input class="input" data-key="department" bindinput="onInput" placeholder="请输入院系或部门" /></view>
+      <view class="field"><text class="label">职称</text><input class="input" data-key="title" bindinput="onInput" placeholder="如 教授 / 讲师 / 辅导员" /></view>
+      <view class="field"><text class="label">工号</text><input class="input" data-key="idNumber" bindinput="onInput" placeholder="请输入工号" /></view>
+    </view>
+
+    <button class="primary-btn" bindtap="submit">保存认证</button>
+    <text class="saved" wx:if="{{saved}}">已提交，等待管理员审核</text>  </view>
+</view>
