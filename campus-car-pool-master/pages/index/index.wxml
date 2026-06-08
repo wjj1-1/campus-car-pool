@@ -1,0 +1,73 @@
+<view class="home-page">
+  <view class="map-shell">
+    <map
+      id="campusMap"
+      class="map"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      scale="{{scale}}"
+      markers="{{markers}}"
+      show-location
+      enable-zoom
+      enable-scroll
+      bindmarkertap="onMarkerTap"
+    ></map>
+  </view>
+
+  <view class="content-panel">
+    <view class="map-topbar">
+      <view>
+        <text class="eyebrow">Campus Ride</text>
+        <text class="map-title">校园同行拼车</text>
+      </view>
+      <button class="locate-btn" bindtap="focusMyLocation">{{locating ? '定位中' : '我的位置'}}</button>
+    </view>
+
+    <view class="floating-search">
+      <input class="search-input" placeholder="搜索目的地、出发地、集合点" value="{{keyword}}" bindinput="onSearchInput" />
+      <text class="location-hint">{{locationHint}}</text>
+    </view>
+
+    <view class="selected-route card" wx:if="{{selectedTrip}}" data-id="{{selectedTrip.id}}" bindtap="goDetail">
+      <view class="between"><text class="selected-time">{{selectedTrip.date}} {{selectedTrip.time}}</text><text class="tag {{selectedTrip.statusClass}}">{{selectedTrip.statusBadge}}</text></view>
+      <view class="selected-line">{{selectedTrip.start}} -> {{selectedTrip.end}}</view>
+      <text class="selected-meta">集合点 {{selectedTrip.meetPoint}} · {{selectedTrip.capacityText}} · {{selectedTrip.priceText}}</text>
+    </view>
+
+    <view class="stats card">
+      <view class="stat-item primary"><text class="stat-num">{{stats.todayTrips}}</text><text class="stat-label">匹配行程</text><text class="stat-hint">随筛选变化</text></view>
+      <view class="stat-item"><text class="stat-num">{{stats.availableSlots}}</text><text class="stat-label">剩余名额</text><text class="stat-hint">最多4人同行</text></view>
+      <view class="stat-item"><text class="stat-num">{{stats.readyTrips}}</text><text class="stat-label">已成行</text><text class="stat-hint">2人及以上</text></view>
+    </view>
+
+    <scroll-view class="filter-row" scroll-x>
+      <view class="filter {{activeFilter === item ? 'active' : ''}}" wx:for="{{filters}}" wx:key="*this" data-name="{{item}}" bindtap="chooseFilter">{{item}}</view>
+    </scroll-view>
+
+    <view class="quick-row">
+      <view class="quick-place" wx:for="{{quickPlaces}}" wx:key="*this" data-name="{{item}}" bindtap="usePlace">{{item}}</view>
+    </view>
+
+    <view class="notice-strip">
+      <text>费用默认 AA 后结算；女生同行偏好、行李占位和信誉分会在加入前自动校验。</text>
+    </view>
+
+    <view class="section-head"><text class="section-title">拼车大厅</text><button class="publish-mini" bindtap="goPublish">发布</button></view>
+
+    <view class="trip-card card" wx:for="{{displayTrips}}" wx:key="id" data-id="{{item.id}}" bindtap="goDetail">
+      <view class="trip-top">
+        <view><text class="trip-time">{{item.date}} {{item.time}}</text><text class="publisher">{{item.publisher}} · {{item.publisherIdentityText}} · 信誉{{item.publisherCreditScore}}</text></view>
+        <text class="status-pill {{item.statusClass}}">{{item.statusBadge}}</text>
+      </view>
+      <view class="route"><view class="route-node start"></view><text>{{item.start}}</text><text class="arrow">-></text><view class="route-node end"></view><text>{{item.end}}</text></view>
+      <view class="trip-summary">
+        <text>{{item.capacityText}}</text>
+        <text>{{item.priceText}}</text>
+      </view>
+      <view class="trip-tags"><text wx:for="{{item.alerts}}" wx:key="*this">{{item}}</text></view>
+      <view class="trip-tags sub"><text>{{item.modeText}}</text><text>{{item.tripSceneText}}</text><text>{{item.luggageText}}</text><text>行李位 {{item.luggageSlots}}</text></view>
+      <view class="trip-meta"><text>集合：{{item.meetPoint}}</text><text>{{item.genderPreferenceText}}</text></view>
+    </view>
+
+    <view class="empty" wx:if="{{displayTrips.length === 0}}"><text>暂无匹配行程</text><button class="ghost-btn" bindtap="goPublish">发布一个</button></view>  </view>
+</view>

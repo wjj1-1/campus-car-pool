@@ -1,0 +1,50 @@
+.home-page { min-height: 100vh; background: #f3f5f4; }
+.map-shell { position: relative; height: 520rpx; background: #dfe8e3; overflow: hidden; }
+.map { width: 100%; height: 100%; }
+.map-topbar { display: flex; justify-content: space-between; align-items: flex-start; color: #1f2d28; margin-bottom: 18rpx; }
+.eyebrow { display: block; font-size: 22rpx; letter-spacing: 0; opacity: .9; }
+.map-title { display: block; margin-top: 6rpx; font-size: 38rpx; font-weight: 800; }
+.locate-btn { width: 150rpx; height: 62rpx; line-height: 62rpx; border-radius: 999rpx; background: rgba(18,61,54,.86); color: #fff; font-size: 24rpx; }
+.floating-search { margin-top: 14rpx; }
+.search-input { height: 84rpx; padding: 0 30rpx; background: rgba(255,255,255,.96); border-radius: 18rpx; font-size: 28rpx; box-shadow: 0 14rpx 40rpx rgba(18,61,54,.16); }
+.location-hint { display: block; margin-top: 12rpx; padding: 10rpx 18rpx; width: fit-content; max-width: 560rpx; border-radius: 999rpx; background: rgba(255,255,255,.92); color: #05A854; font-size: 22rpx; box-shadow: 0 8rpx 22rpx rgba(5,168,84,.12); }
+.selected-route { margin-top: 18rpx; padding: 24rpx; }
+.selected-time { color: #66706b; font-size: 24rpx; }
+.selected-line { margin: 18rpx 0 10rpx; font-size: 34rpx; font-weight: 800; }
+.selected-meta { color: #66706b; font-size: 24rpx; }
+.content-panel { margin-top: -22rpx; padding: 24rpx; border-radius: 28rpx 28rpx 0 0; background: #f3f5f4; position: relative; z-index: 2; }
+.stats { display: flex; gap: 14rpx; padding: 18rpx; margin-bottom: 24rpx; }
+.stat-item { flex: 1; padding: 20rpx 10rpx; border-radius: 16rpx; background: #f7fbf8; text-align: center; }
+.stat-item.primary { background: #e9f8f0; }
+.stat-num { display: block; font-size: 42rpx; font-weight: 800; color: #05A854; }
+.stat-label { display: block; margin-top: 8rpx; color: #53615c; font-size: 24rpx; }
+.stat-hint { display: block; margin-top: 6rpx; color: #9aa49f; font-size: 20rpx; }
+.filter-row { white-space: nowrap; margin-bottom: 18rpx; }
+.filter { display: inline-flex; align-items: center; height: 62rpx; padding: 0 28rpx; margin-right: 16rpx; border-radius: 999rpx; background: #fff; color: #53615c; font-size: 26rpx; box-shadow: 0 8rpx 22rpx rgba(18,61,54,.05); }
+.filter.active { background: #05A854; color: #fff; }
+.quick-row { display: flex; flex-wrap: wrap; gap: 14rpx; margin-bottom: 20rpx; }
+.quick-place { padding: 14rpx 22rpx; border-radius: 12rpx; background: #e8f2ee; color: #07C160; font-size: 24rpx; }
+.notice-strip { margin-bottom: 24rpx; padding: 18rpx 22rpx; border-left: 8rpx solid #05A854; border-radius: 12rpx; background: #fff; color: #53615c; font-size: 24rpx; line-height: 1.55; }
+.section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18rpx; }
+.section-title { font-size: 36rpx; font-weight: 800; }
+.publish-mini { width: 116rpx; height: 58rpx; line-height: 58rpx; border-radius: 999rpx; background: #05A854; color: #fff; font-size: 24rpx; }
+.trip-card { margin-bottom: 20rpx; padding: 28rpx; }
+.trip-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 18rpx; }
+.trip-time { display: block; color: #263c33; font-size: 28rpx; font-weight: 700; }
+.publisher { display: block; margin-top: 8rpx; color: #7b8580; font-size: 23rpx; }
+.status-pill, .tag { padding: 9rpx 16rpx; border-radius: 999rpx; font-size: 22rpx; white-space: nowrap; }
+.status-pill.ready, .tag.ready { background: #e9f8f0; color: #05A854; }
+.status-pill.waiting, .tag.waiting { background: #fff4e5; color: #b46b00; }
+.status-pill.full, .tag.full { background: #eef0f0; color: #77817c; }
+.route { display: flex; align-items: center; gap: 12rpx; margin: 24rpx 0 18rpx; font-size: 34rpx; font-weight: 800; color: #1f2d28; }
+.route-node { width: 14rpx; height: 14rpx; border-radius: 50%; flex: none; }
+.route-node.start { background: #07C160; }
+.route-node.end { background: #f0a33a; }
+.arrow { color: #07C160; margin: 0 4rpx; }
+.trip-summary { display: flex; justify-content: space-between; padding: 18rpx 20rpx; margin-bottom: 16rpx; border-radius: 14rpx; background: #f7fbf8; color: #123527; font-size: 26rpx; font-weight: 700; }
+.trip-tags { display: flex; flex-wrap: wrap; gap: 12rpx; margin: 0 0 16rpx; }
+.trip-tags text { padding: 8rpx 14rpx; border-radius: 999rpx; background: #f6efe4; color: #8a5a16; font-size: 22rpx; }
+.trip-tags.sub text { background: #eef8f2; color: #05A854; }
+.trip-meta { display: flex; justify-content: space-between; gap: 20rpx; color: #66706b; font-size: 25rpx; }
+.empty { padding: 80rpx 0; text-align: center; color: #7b8580; }
+.empty button { margin-top: 24rpx; width: 220rpx; }

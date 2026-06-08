@@ -1,0 +1,7 @@
+.container.simple-page { padding: 24rpx; }
+.auth-card { padding: 28rpx; }
+.title { display: block; font-size: 34rpx; font-weight: 800; color: #123527; }
+.body { display: block; margin-top: 12rpx; color: #66706b; font-size: 24rpx; line-height: 1.6; }
+.field { margin-top: 22rpx; }
+.label { display: block; margin-bottom: 10rpx; color: #53615c; font-size: 26rpx; }
+.saved { display: block; margin-top: 18rpx; color: #05A854; font-size: 24rpx; }

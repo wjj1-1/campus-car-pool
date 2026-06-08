@@ -1,0 +1,23 @@
+<view class="container admin-page">
+  <view class="card header-card">
+    <text class="title">认证审核</text>
+    <text class="body">本页面为本地演示管理员审核入口。通过后用户才可以发布或加入拼车。</text>
+  </view>
+
+  <view class="card app-card" wx:for="{{applications}}" wx:key="id">
+    <view class="between"><text class="app-title">{{item.name}} · {{item.identityText}}</text><text class="status {{item.status}}">{{item.statusText}}</text></view>
+    <text class="line">学校：{{item.school}}</text>
+    <text class="line" wx:if="{{item.identity === 'student'}}">学号：{{item.detail.studentId}}</text>
+    <text class="line" wx:if="{{item.identity === 'teacher'}}">院系：{{item.detail.department}}</text>
+    <text class="line" wx:if="{{item.identity === 'teacher'}}">职称：{{item.detail.title}}</text>
+    <text class="line" wx:if="{{item.identity === 'teacher'}}">工号：{{item.detail.employeeId}}</text>
+    <text class="line muted">提交时间：{{item.time}}</text>
+    <text class="line reject" wx:if="{{item.rejectReason}}">驳回原因：{{item.rejectReason}}</text>
+    <view class="actions" wx:if="{{item.status === 'pending'}}">
+      <button class="primary-btn" data-id="{{item.id}}" bindtap="approve">通过</button>
+      <button class="cancel-btn" data-id="{{item.id}}" bindtap="reject">驳回</button>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{applications.length === 0}}">暂无认证申请</view>
+</view>

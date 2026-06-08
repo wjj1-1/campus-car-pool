@@ -1,0 +1,16 @@
+.admin-page { padding-bottom: 40rpx; }
+.header-card { margin-bottom: 22rpx; }
+.title { display: block; color: #123527; font-size: 34rpx; font-weight: 800; }
+.body { display: block; margin-top: 12rpx; color: #66706b; font-size: 24rpx; line-height: 1.6; }
+.app-card { margin-bottom: 20rpx; }
+.app-title { color: #123527; font-size: 30rpx; font-weight: 800; }
+.status { padding: 6rpx 14rpx; border-radius: 999rpx; font-size: 22rpx; }
+.status.pending { background: #fff4e5; color: #b46b00; }
+.status.approved { background: #e9f8f0; color: #05A854; }
+.status.rejected { background: #fff0ee; color: #bd3f2f; }
+.line { display: block; margin-top: 12rpx; color: #53615c; font-size: 25rpx; }
+.line.muted { color: #8a9490; }
+.line.reject { color: #bd3f2f; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 14rpx; margin-top: 22rpx; }
+.cancel-btn { background: #fff0ee; color: #bd3f2f; }
+.empty { padding: 120rpx 0; text-align: center; color: #7b8580; }

@@ -1,0 +1,19 @@
+.tabs { display: flex; padding: 8rpx; background: #fff; border-radius: 16rpx; margin-bottom: 20rpx; }
+.tab { flex: 1; height: 70rpx; line-height: 70rpx; text-align: center; color: #66706b; border-radius: 12rpx; font-size: 28rpx; }
+.tab.active { background: #07C160; color: #fff; }
+.notice { margin-bottom: 20rpx; padding: 22rpx 24rpx; color: #66706b; font-size: 24rpx; line-height: 1.6; }
+.trip-card { margin-bottom: 20rpx; }
+.status { font-weight: 700; color: #07C160; }
+.status.full { color: #9aa49f; }
+.status.ready { color: #05A854; }
+.status.waiting { color: #b46b00; }
+.route { display: flex; gap: 16rpx; align-items: center; margin: 24rpx 0; font-size: 34rpx; font-weight: 700; }
+.arrow { color: #07C160; }
+.meta { display: flex; justify-content: space-between; color: #66706b; font-size: 26rpx; margin-top: 10rpx; }
+.meta.sub { color: #8a9490; font-size: 24rpx; }
+.actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12rpx; margin-top: 24rpx; }
+.actions button { height: 72rpx; line-height: 72rpx; font-size: 25rpx; border-radius: 12rpx; padding: 0; }
+.warn-btn { background: #fff7e8; color: #b46b00; }
+.cancel-btn { background: #fff0ee; color: #bd3f2f; }
+.empty { padding: 120rpx 0; text-align: center; color: #7b8580; }
+.empty button { margin-top: 28rpx; width: 220rpx; }

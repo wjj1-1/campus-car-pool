@@ -1,0 +1,81 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="feedback-page">
+  <view class="feedback-header">
+    <text class="header-title">意见反馈</text>
+    <text class="header-desc">我们重视您的每一条反馈</text>
+  </view>
+
+  <view class="feedback-form">
+    <view class="form-item">
+      <view class="form-label">
+        <text class="required">*</text>
+        <text>反馈类型</text>
+      </view>
+      <picker mode="selector" range="{{feedbackTypes}}" bindchange="onTypeChange">
+        <view class="form-input picker-value">
+          {{feedbackType || '请选择反馈类型'}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">
+        <text class="required">*</text>
+        <text>反馈内容</text>
+      </view>
+      <textarea 
+        class="feedback-textarea" 
+        placeholder="请详细描述您的问题或建议..." 
+        bindinput="inputContent"
+        value="{{content}}"
+        maxlength="500"
+      />
+      <view class="word-count">{{content.length || 0}}/500</view>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">
+        <text>联系方式</text>
+      </view>
+      <input 
+        class="form-input" 
+        type="number" 
+        placeholder="请输入手机号或邮箱（选填）" 
+        bindinput="inputContact"
+        value="{{contact}}"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">
+        <text>上传图片</text>
+      </view>
+      <view class="upload-section">
+        <view class="upload-list">
+          <view class="upload-item" wx:for="{{images}}" wx:key="index">
+            <image src="{{item}}" mode="aspectFill"></image>
+            <view class="delete-btn" data-index="{{index}}" bindtap="deleteImage">×</view>
+          </view>
+          <view class="upload-btn" wx:if="{{images.length < 3}}" bindtap="chooseImage">
+            <text class="upload-icon">+</text>
+            <text class="upload-text">添加图片</text>
+          </view>
+        </view>
+        <text class="upload-hint">最多上传3张图片</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="feedback-actions">
+    <button class="submit-btn" bindtap="onSubmit" disabled="{{!canSubmit}}">
+      提交反馈
+    </button>
+  </view>
+
+  <view class="feedback-tips">
+    <view class="tips-title">温馨提示</view>
+    <view class="tips-item">1. 请尽量详细描述您遇到的问题</view>
+    <view class="tips-item">2. 上传截图可以帮助我们更快定位问题</view>
+    <view class="tips-item">3. 我们将在1-3个工作日内回复您</view>
+  </view>
+</view>

@@ -1,0 +1,60 @@
+<!--pages/settings/settings.wxml-->
+<view class="settings-page">
+  <view class="avatar-section">
+    <view class="avatar-wrapper">
+      <image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+      <view class="change-avatar-btn" bindtap="changeAvatar">
+        <text>修改头像</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="settings-form">
+    <view class="form-item">
+      <view class="form-label">用户ID</view>
+      <view class="form-value">
+        <text class="user-id">{{userInfo.userId || '系统自动生成'}}</text>
+      </view>
+    </view>
+
+    <view class="form-item" bindtap="editNickname">
+      <view class="form-label">昵称</view>
+      <view class="form-value">
+        <text class="nickname">{{userInfo.nickname}}</text>
+        <text class="arrow">›</text>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">性别</view>
+      <view class="form-value">
+        <picker mode="selector" range="{{genders}}" bindchange="onGenderChange">
+          <view class="picker-value">
+            {{userInfo.genderText || '未设置'}}
+          </view>
+        </picker>
+        <text class="arrow">›</text>
+      </view>
+    </view>
+
+    <view class="form-item" bindtap="editSignature">
+      <view class="form-label">个性签名</view>
+      <view class="form-value">
+        <text class="signature">{{userInfo.signature || '未设置'}}</text>
+        <text class="arrow">›</text>
+      </view>
+    </view>
+
+    <view class="form-item" bindtap="editPhone">
+      <view class="form-label">联系电话</view>
+      <view class="form-value">
+        <text class="phone">{{userInfo.phone || '未设置'}}</text>
+        <text class="arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="settings-info">
+    <text class="info-text">用户ID是系统自动生成的唯一标识</text>
+  </view>
+</view>
